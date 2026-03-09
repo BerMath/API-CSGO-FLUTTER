@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '/screen/skins_screen.dart';
 import '/screen/cases_screen.dart';
-import '/screen/highlights_screen.dart';
+import 'screen/highlights_screen.dart';
 
 void main() {
   runApp(const MyApp());
