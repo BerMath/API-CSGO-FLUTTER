@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '/screen/skins_screen.dart';
-import '/screen/cases_screen.dart';
+import 'screen/skins_screen.dart';
+import 'screen/cases_screen.dart';
 import 'screen/highlights_screen.dart';
 
 void main() {
@@ -15,8 +15,41 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'CS:GO Items',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // Thème sombre
         useMaterial3: true,
+        brightness: Brightness.dark,
+        
+        // Couleur primaire (AppBar, buttons, etc)
+        primaryColor: Colors.blue,
+        
+        // Couleur de fond des pages
+        scaffoldBackgroundColor: const Color(0xFF1A1A2E), // Bleu foncé
+        
+        // Couleur de l'AppBar
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF0F3460),
+          foregroundColor: Colors.white,
+          elevation: 0,
+        ),
+        
+        // Couleur des cards
+        cardTheme: CardThemeData(
+          color: const Color(0xFF16213E),
+          elevation: 4,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        
+        // Couleur du SearchBar
+        searchBarTheme: SearchBarThemeData(
+          backgroundColor: WidgetStateProperty.all(
+            const Color(0xFF16213E),
+          ),
+        ),
+        
+        // Couleur des icônes
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       home: const HomeScreen(),
     );
@@ -50,6 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
             _selectedIndex = index;
           });
         },
+        backgroundColor: const Color(0xFF0F3460),
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.palette),

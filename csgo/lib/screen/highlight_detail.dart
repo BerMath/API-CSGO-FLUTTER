@@ -1,4 +1,3 @@
-// lib/screens/highlight_detail_screen.dart
 import 'package:flutter/material.dart';
 
 class HighlightDetailScreen extends StatefulWidget {
