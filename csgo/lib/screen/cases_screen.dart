@@ -9,7 +9,7 @@ class CasesScreen extends StatefulWidget {
 }
 
 class _CasesScreenState extends State<CasesScreen> {
-  final _api = CsgoApiService(language: 'fr');
+  final _api = CsgoApiService(language: 'en');
   late Future<List<dynamic>> _casesFuture;
 
   @override

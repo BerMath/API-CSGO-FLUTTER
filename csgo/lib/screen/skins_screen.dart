@@ -9,7 +9,7 @@ class SkinsScreen extends StatefulWidget {
 }
 
 class _SkinsScreenState extends State<SkinsScreen> {
-  final _api = CsgoApiService(language: 'fr');
+  final _api = CsgoApiService(language: 'en');
   late Future<List<dynamic>> _skinsFuture;
 
   @override

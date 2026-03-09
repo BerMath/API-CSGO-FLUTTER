@@ -2,12 +2,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class CsgoApiService {
-  // ✅ SANS le /fr/ à la fin!
   static const String _baseUrl = 'https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api';
 
   final String language;
 
-  CsgoApiService({this.language = 'fr'});
+  CsgoApiService({this.language = 'en'});
 
   Future<List<dynamic>> getSkins() async {
     final reponse = await http.get(
@@ -33,10 +32,9 @@ class CsgoApiService {
     }
   }
 
-  // ✅ gloves.json et pas highlights.json
   Future<List<dynamic>> getHighlights() async {
     final reponse = await http.get(
-      Uri.parse('$_baseUrl/$language/gloves.json'),
+      Uri.parse('$_baseUrl/$language/highlights.json'),
     );
 
     if (reponse.statusCode == 200) {
