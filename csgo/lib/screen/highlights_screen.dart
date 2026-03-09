@@ -9,7 +9,7 @@ class HighlightsScreen extends StatefulWidget {
 }
 
 class _HighlightsScreenState extends State<HighlightsScreen> {
-  final _api = CsgoApiService(language: 'fr');
+  final _api = CsgoApiService(language: 'en');
   late Future<List<dynamic>> _highlightsFuture;
 
   @override
