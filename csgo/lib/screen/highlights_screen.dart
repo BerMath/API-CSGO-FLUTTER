@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/csgo_api_service.dart';
+import 'highlight_detail_screen.dart';
 
 class HighlightsScreen extends StatefulWidget {
   const HighlightsScreen({super.key});
@@ -36,10 +37,64 @@ class _HighlightsScreenState extends State<HighlightsScreen> {
             itemCount: highlights.length,
             itemBuilder: (context, index) {
               final highlight = highlights[index];
-              return ListTile(
-                title: Text(highlight['name'] ?? ''),
-                subtitle: Text(highlight['rarity']?['name'] ?? ''),
-              );
+              return InkWell(
+                borderRadius: BorderRadius.circular(10),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => HighlightDetailScreen(
+                      highlight: Map<String, dynamic>.from(highlight),
+                    ),
+                  ),
+                ),
+                child: Card(
+                margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                elevation: 3,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          highlight['tournament_player'] ?? '',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      // Zone 2 : Nom
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          (highlight['name'] ?? '').toString().split(' | ').last.trim(),
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
             },
           );
         },
